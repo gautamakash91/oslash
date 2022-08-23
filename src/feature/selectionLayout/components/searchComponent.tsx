@@ -29,10 +29,15 @@ export default function SearchComponent({
 }: SearchComponentProps) {
 
   const [accessType, setAccessType] = useState("");
-
+  const handleDelete = (index: number) => {
+    var s: userProps[] = [...tempSelected];
+    s.splice(index, 1);
+    setTempSelected(s);
+  }
   return (
     <div className="search-container">
       <InputBase
+        autoFocus={true}
         onKeyDown={handleKeyDown}
         onChange={(e: any) => { setkeyword(e.target.value) }}
         value={keyword}
@@ -41,9 +46,10 @@ export default function SearchComponent({
           width: "60%"
         }}
         startAdornment={
-          tempSelected.map((item: userProps) => (
+          tempSelected.map((item: userProps, index: number) => (
             <Chip
               label={item.title}
+              onDelete={() => { handleDelete(index) }}
             />
           ))
         }
