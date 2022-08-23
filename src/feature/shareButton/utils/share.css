@@ -1,0 +1,31 @@
+.listItem-bottom{
+  background-color: #F9FAFB;
+}
+
+.bottom-icons{
+  width: 20px;
+  position: relative;
+  top: 5px;
+  margin-right: 5px;
+  color: #6C727F !important;
+}
+
+.bottom-left{
+  color: #6C727F !important;
+}
+
+.share-down-arrow{
+  width: 15px;
+  color: #6C727F;
+  position: relative;
+  top: 3px;
+}
+
+.share-text{
+  color: #6C727F;
+}
+
+.MuiMenu-list{
+  padding: 0px !important;
+
+}

@@ -1,0 +1,21 @@
+.active{
+  background-color: #f2f2f2;
+}
+
+.inactive{
+  background-color: white;
+}
+
+.subheading-text{
+  display: block;
+  margin: 20px !important;
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
+}
+
+.search-container{
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
