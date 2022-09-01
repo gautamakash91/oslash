@@ -10,7 +10,7 @@ import {
   SharesOptionsProps
 } from "../../utils/allInterfaces";
 
-export default function ShareOptions({ access, value, setAccessType, type }: SharesOptionsProps) {
+export default function ShareOptions({ access, value, setAccessType, type, changeAccess }: SharesOptionsProps) {
   const [shareOption, setShareOption] = useState<string>("No access");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -27,7 +27,8 @@ export default function ShareOptions({ access, value, setAccessType, type }: Sha
       setAccessType(value);
       setAnchorEl(null);
     } else if (type === "view") {
-      // setSelected();
+      changeAccess(value);
+      setAnchorEl(null);
     }
 
   };
@@ -36,7 +37,7 @@ export default function ShareOptions({ access, value, setAccessType, type }: Sha
     if (value) {
       setShareOption(value);
     }
-  }, [])
+  }, [value])
 
   return (
     <>

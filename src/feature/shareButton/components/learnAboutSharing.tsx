@@ -17,7 +17,10 @@ export default function LearnAboutSharing({ link }: LearnAboutProps) {
       className='listItem-bottom'
       secondaryAction={
         link !== "" &&
-        <Typography variant="body2">
+        <Typography 
+          variant="body2" 
+          onClick={() => {navigator.clipboard.writeText(link)}}
+        >
           <img src={attachIcon} className="bottom-icons" />
           copy link
         </Typography>

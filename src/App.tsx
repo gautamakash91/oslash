@@ -1,24 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ShareButton from './feature/shareButton';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Ready to get started with our sharing experience?</h2>
+      <h3>click on the button below</h3>
+      <ShareButton
+        people={[
+          {
+            "title": "Michael",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+          },
+          {
+            "title": "Lindsay",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+          },
+          {
+            "title": "Tobias",
+            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+          },
+          {
+            "title": "Byron",
+            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+          },
+          {
+            "title": "George",
+            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+          },
+          {
+            "title": "Rachel",
+            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+          }
+        ]}
+        groups={[
+          { "title": "Engineering", "avatar": "" },
+          { "title": "Product", "avatar": "" }
+        ]}
+        access={["Full access", "Can view", "Can edit", "No Access"]}
+      />
     </div>
   );
 }

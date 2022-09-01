@@ -28,6 +28,7 @@ export interface SharesOptionsProps {
   value?: string;
   setAccessType?: any;
   type: string;
+  changeAccess?: any;
 }
 
 export interface SelectionLayoutProps {

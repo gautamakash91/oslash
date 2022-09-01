@@ -1,6 +1,5 @@
 import {
   ListItem,
-  IconButton,
   Switch,
   Avatar,
   ListItemAvatar,
@@ -13,23 +12,26 @@ import {
 } from "../utils/allInterfaces";
 
 export default function ShareToWeb({ share, disabled }: ShareToWebProps) {
-  const [checked, setChecked] = useState(false); 
+  const [checked, setChecked] = useState(false);
 
-  useEffect(()=>{
-    if(share!== undefined){
+  useEffect(() => {
+    if (share !== undefined) {
       setChecked(share);
     }
-  },[share])
+  }, [share])
+
+  const handleShareToWeb = () => {
+    setChecked(!checked);
+  }
 
   return (
     <ListItem
       secondaryAction={
-        <IconButton edge="end" aria-label="delete">
-          <Switch 
-            disabled={disabled}
-            checked={checked}
-          />
-        </IconButton>
+        <Switch
+          disabled={disabled}
+          checked={checked}
+          onClick={handleShareToWeb}
+        />
       }
     >
       <ListItemAvatar>

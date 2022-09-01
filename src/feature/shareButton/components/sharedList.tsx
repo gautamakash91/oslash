@@ -9,13 +9,20 @@ import {
   Typography
 } from "@mui/material";
 import ShareOptions from "./subComponents/shareOptions";
-import React from "react";
+import React, { useState } from "react";
 import {
   SharesListProps
 } from "../utils/allInterfaces";
 import { grey } from "@mui/material/colors";
 
 export default function SharedList({ selected, access, setSelected }: SharesListProps) {
+  const [workspaceAccess, setWorkspaceAccess] = useState("");
+  
+  const changeAccess = (index: number, value: string) => {
+    var s = [...selected];
+    s[index].role = value;
+    setSelected(s);
+  }
   return (
     <>
       <ListItem
@@ -24,6 +31,8 @@ export default function SharedList({ selected, access, setSelected }: SharesList
           <ShareOptions
             access={access}
             type="view"
+            value={workspaceAccess}
+            changeAccess={(value: string) => { setWorkspaceAccess(value) }}
           />
         }
       >
@@ -35,13 +44,14 @@ export default function SharedList({ selected, access, setSelected }: SharesList
           secondary={'25 workspace members'}
         />
       </ListItem>
-      {selected.map((item) => (
+      {selected.map((item, index) => (
         <ListItem
           secondaryAction={
             <ShareOptions
               access={access}
               value={item.role}
               type="view"
+              changeAccess={(value: string) => { changeAccess(index, value) }}
             />
           }
         >
