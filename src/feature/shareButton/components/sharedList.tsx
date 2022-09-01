@@ -1,12 +1,8 @@
 import {
   ListItem,
-  IconButton,
-  Switch,
-  Icon,
   Avatar,
   ListItemAvatar,
-  ListItemText,
-  Typography
+  ListItemText
 } from "@mui/material";
 import ShareOptions from "./subComponents/shareOptions";
 import React, { useState } from "react";
