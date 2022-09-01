@@ -1,3 +1,5 @@
+import { AnyTxtRecord } from "dns";
+
 export interface userProps {
   title: string;
   avatar: string;
@@ -18,12 +20,14 @@ export interface selectedUserProps {
 export interface SharesListProps {
   selected: selectedUserProps[];
   access: string[];
+  setSelected?: any;
 }
 
 export interface SharesOptionsProps {
   access: string[];
   value?: string;
   setAccessType?: any;
+  type: string;
 }
 
 export interface SelectionLayoutProps {
@@ -56,4 +60,13 @@ export interface RowItemProps {
   setCursor: any;
   setkeyword: any;
   tempSelected: userProps[];
+}
+
+export interface LearnAboutProps{
+  link: string;
+}
+
+export interface ShareToWebProps{
+  share?: boolean;
+  disabled:  boolean;
 }

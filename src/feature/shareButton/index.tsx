@@ -28,6 +28,7 @@ const ShareButton = ({ people, groups, access }: ShareProps) => {
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -72,7 +73,9 @@ const ShareButton = ({ people, groups, access }: ShareProps) => {
             }}
           >
             {/* SHARE TO WEB */}
-            <ShareToWeb />
+            <ShareToWeb 
+              disabled={false}
+            />
             <Divider />
             {/* SEARCH USERS */}
             <OutlinedInput
@@ -95,10 +98,13 @@ const ShareButton = ({ people, groups, access }: ShareProps) => {
             <SharedList 
               selected={selected}
               access={access}
+              setSelected={setSelected}
             />
 
             {/* LEARN ABOUT SHARING */}
-            <LearnAboutSharing />
+            <LearnAboutSharing 
+              link=""
+            />
           </List>
           :
           // THE SCREEN WHICH IS SHOWN WHEN THE USER CLICKS ON THE TEXTFIELD 

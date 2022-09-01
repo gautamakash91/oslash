@@ -10,9 +10,8 @@ import {
   SharesOptionsProps
 } from "../../utils/allInterfaces";
 
-export default function ShareOptions({ access, value, setAccessType }: SharesOptionsProps) {
+export default function ShareOptions({ access, value, setAccessType, type }: SharesOptionsProps) {
   const [shareOption, setShareOption] = useState<string>("No access");
-  // const [options, setOptions] = useState<string[]>(["Full access", "Can edit", "Can view", "No access"]);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -23,16 +22,21 @@ export default function ShareOptions({ access, value, setAccessType }: SharesOpt
   };
 
   const handleSelection = (value: string) => {
-    setShareOption(value);
-    setAccessType(value);
-    setAnchorEl(null);
+    if (type === "add") {
+      setShareOption(value);
+      setAccessType(value);
+      setAnchorEl(null);
+    } else if (type === "view") {
+      // setSelected();
+    }
+
   };
 
-  useEffect(()=>{
-    if(value){
+  useEffect(() => {
+    if (value) {
       setShareOption(value);
     }
-  },[])
+  }, [])
 
   return (
     <>

@@ -125,7 +125,9 @@ export default function SelectionLayout({
       }
 
       {/* BOTTOM INFORMATION SECTION */}
-      <LearnAboutSharing />
+      <LearnAboutSharing 
+        link=""
+      />
     </div>
   )
 }

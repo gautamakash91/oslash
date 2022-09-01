@@ -57,6 +57,7 @@ export default function SearchComponent({
       <ShareOptions
         access={access}
         setAccessType={setAccessType}
+        type="add"
       />
       <Button
         variant="outlined"

@@ -15,7 +15,7 @@ import {
 } from "../utils/allInterfaces";
 import { grey } from "@mui/material/colors";
 
-export default function SharedList({ selected, access }: SharesListProps) {
+export default function SharedList({ selected, access, setSelected }: SharesListProps) {
   return (
     <>
       <ListItem
@@ -23,6 +23,7 @@ export default function SharedList({ selected, access }: SharesListProps) {
         secondaryAction={
           <ShareOptions
             access={access}
+            type="view"
           />
         }
       >
@@ -40,6 +41,7 @@ export default function SharedList({ selected, access }: SharesListProps) {
             <ShareOptions
               access={access}
               value={item.role}
+              type="view"
             />
           }
         >

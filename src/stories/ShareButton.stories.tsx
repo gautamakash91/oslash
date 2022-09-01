@@ -9,8 +9,8 @@ export default {
 
 const Template: ComponentStory<typeof ShareButton> = (args) => <ShareButton {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const FullButton = Template.bind({});
+FullButton.args = {
   people: [
     {
       "title": "Michael",
@@ -43,3 +43,6 @@ Primary.args = {
   ],
   access: ["Full access", "Can view", "Can edit", "No Access"]
 };
+
+
+
