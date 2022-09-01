@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import ShareButton from './feature/shareButton';
+import {
+  selectedUserProps
+} from "./feature/shareButton/utils/allInterfaces";
+import {
+  Icon
+} from "@mui/material";
+import SharedList from './feature/shareButton/components/sharedList';
 
 function App() {
+  const [selected, setSelected] = useState<selectedUserProps[]>([]);
+
   return (
     <div className="App">
       <h2>Ready to get started with our sharing experience?</h2>
       <h3>click on the button below</h3>
       <ShareButton
+        selected={selected}
+        setSelected={setSelected}
+        onChange={(value: selectedUserProps[]) => {
+          setSelected(value);
+        }}
         people={[
           {
             "title": "Michael",
@@ -39,6 +53,14 @@ function App() {
           { "title": "Product", "avatar": "" }
         ]}
         access={["Full access", "Can view", "Can edit", "No Access"]}
+      >
+        <Icon>delete</Icon>
+      </ShareButton>
+
+      <SharedList
+        selected={selected}
+        access={["Full access", "Can view", "Can edit", "No Access"]}
+        setSelected={setSelected}
       />
     </div>
   );

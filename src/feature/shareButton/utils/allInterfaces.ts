@@ -6,9 +6,13 @@ export interface userProps {
 }
 
 export interface ShareProps {
-  people: userProps[],
-  groups: userProps[],
-  access: string[]
+  people: userProps[];
+  groups: userProps[];
+  access: string[];
+  onChange?: any;
+  children: any;
+  selected: selectedUserProps[];
+  setSelected?: any;
 }
 
 export interface selectedUserProps {

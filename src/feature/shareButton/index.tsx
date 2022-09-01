@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Button,
   Menu,
@@ -14,16 +14,15 @@ import LearnAboutSharing from './components/learnAboutSharing';
 import SelectionLayout from '../selectionLayout';
 import "./utils/share.css";
 import {
-  ShareProps,
-  selectedUserProps
+  ShareProps
 } from "./utils/allInterfaces";
 
 //STARTING POINT OF THE SHARE BUTTON
-const ShareButton = ({ people, groups, access }: ShareProps) => {
+const ShareButton = ({ people, groups, access, onChange, children, selected, setSelected }: ShareProps) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [showSelection, setShowSelection] = useState(true);
   const open = Boolean(anchorEl);
-  const [selected, setSelected] = useState<selectedUserProps[]>([]);
+  // const [selected, setSelected] = useState<selectedUserProps[]>([]);
 
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -37,6 +36,10 @@ const ShareButton = ({ people, groups, access }: ShareProps) => {
     setShowSelection(!showSelection);
   }
 
+  useEffect(() => {
+    onChange(selected);
+  }, [selected])
+
   return (
     <>
       <Button
@@ -46,7 +49,7 @@ const ShareButton = ({ people, groups, access }: ShareProps) => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        share
+        {children}
       </Button>
       <Menu
         id="basic-menu"
@@ -73,7 +76,7 @@ const ShareButton = ({ people, groups, access }: ShareProps) => {
             }}
           >
             {/* SHARE TO WEB */}
-            <ShareToWeb 
+            <ShareToWeb
               disabled={false}
             />
             <Divider />
@@ -95,14 +98,14 @@ const ShareButton = ({ people, groups, access }: ShareProps) => {
             />
 
             {/* SHARED LIST */}
-            <SharedList 
+            <SharedList
               selected={selected}
               access={access}
               setSelected={setSelected}
             />
 
             {/* LEARN ABOUT SHARING */}
-            <LearnAboutSharing 
+            <LearnAboutSharing
               link=""
             />
           </List>

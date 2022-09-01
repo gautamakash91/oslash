@@ -1,15 +1,21 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ShareButton from "../feature/shareButton";
+import { useArgs } from '@storybook/client-api';
 
 export default {
   title: 'ShareButton',
   component: ShareButton,
 } as ComponentMeta<typeof ShareButton>;
+import {
+  selectedUserProps
+} from "../feature/shareButton/utils/allInterfaces";
 
 const Template: ComponentStory<typeof ShareButton> = (args) => <ShareButton {...args} />;
 
 export const FullButton = Template.bind({});
+// const [{ selected }, updateArgs] = useArgs();
+
 FullButton.args = {
   people: [
     {
@@ -41,7 +47,11 @@ FullButton.args = {
     { "title": "Engineering", "avatar": "" },
     { "title": "Product", "avatar": "" }
   ],
-  access: ["Full access", "Can view", "Can edit", "No Access"]
+  access: ["Full access", "Can view", "Can edit", "No Access"],
+  // selected: {selected},
+  // setSelected: (value: any) => {
+  //   updateArgs({ selected: value })
+  // }
 };
 
 
